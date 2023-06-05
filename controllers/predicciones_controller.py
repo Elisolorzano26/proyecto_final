@@ -1,4 +1,4 @@
-from flask import request, redirect, render_template, session, url_for, current_app  # Importa funciones y objetos necesarios de Flask
+from flask import request, render_template, session, url_for, current_app  # Importa funciones y objetos necesarios de Flask
 import os  # Importa el módulo 'os' para interactuar con el sistema operativo
 import random  # Importa el módulo 'random' para generar valores aleatorios
 import string  # Importa el módulo 'string' para trabajar con cadenas de caracteres
