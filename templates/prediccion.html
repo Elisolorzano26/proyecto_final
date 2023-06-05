@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Reconocimiento de imágenes con IA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Predicción</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ver historial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Salir</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="card p-4 border-4 shadow-lg">
+            <h1 class="text-center mb-4">Reconocimiento de imágenes con IA</h1>
+
+            <form>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" id="imageUpload" accept=".png, .jpg, .jpeg">
+                    <label class="input-group-text" for="imageUpload">Seleccionar imagen</label>
+                </div>
+
+                <div class="alert alert-danger d-none" id="invalidImageAlert">
+                    Por favor, selecciona una imagen en formato PNG, JPG o JPEG.
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Predecir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='javascript/prediccion.js') }}"></script>
+</body>
+
+</html>
