@@ -22,26 +22,26 @@
                 Las contraseñas no coinciden.
             </div>
 
-            <form>
+            <form action="/nuevo_usuario" method="POST">
                 <div class="mb-3">
                     <label for="fullName" class="form-label">Nombre completo</label>
-                    <input type="text" class="form-control" id="fullName">
+                    <input name="nombre" type="text" class="form-control" id="fullName">
                 </div>
 
                 <div class="mb-3">
                     <label for="phone" class="form-label">Teléfono</label>
-                    <input type="tel" class="form-control" id="phone">
+                    <input name="telefono" type="tel" class="form-control" id="phone">
                 </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email">
+                    <input name="correo" type="email" class="form-control" id="email">
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Contraseña</label>
                     <div class="input-group">
-                        <input type="password" class="form-control" id="password">
+                        <input name="password" type="password" class="form-control" id="password">
                         <button type="button" class="btn btn-outline-secondary" id="togglePassword">
                             <i class="bi bi-eye-slash"></i>
                         </button>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="text-center mt-3">
-                    <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a></p>
+                    <p>¿Ya tienes una cuenta? <a href="{{ url_for('usuario.iniciar_sesion') }}">Inicia sesión</a></p>
                 </div>
             </form>
         </div>
