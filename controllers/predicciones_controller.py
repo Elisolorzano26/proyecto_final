@@ -1,4 +1,4 @@
-from flask import request, render_template, session, url_for, current_app  # Importa funciones y objetos necesarios de Flask
+from flask import redirect, request, render_template, session, url_for, current_app  # Importa funciones y objetos necesarios de Flask
 import os  # Importa el módulo 'os' para interactuar con el sistema operativo
 import random  # Importa el módulo 'random' para generar valores aleatorios
 import string  # Importa el módulo 'string' para trabajar con cadenas de caracteres
@@ -67,3 +67,19 @@ def procesar_imagen():
                         porcentajeTigre=porcentajeTigre,
                         porcentajePantera=porcentajePantera, 
                         image_path=imagen_ruta)  # Renderiza la plantilla 'resultado_prediccion.html' con los resultados de la predicción
+
+def historial_predicciones():  # Define la función historial_predicciones()
+    try:
+        id_usuario_fk = session['id_usuario']  # Obtiene el ID del usuario almacenado en la sesión
+
+        predicciones = Prediccion.query.filter_by(id_usuario_fk=id_usuario_fk).all()  # Realiza una consulta a la base de datos para obtener todas las predicciones del usuario actual
+
+        if predicciones:  # Verifica si hay predicciones
+            for prediccion in predicciones:  # Itera sobre cada objeto de la lista predicciones
+                nombreImagen = os.path.basename(prediccion.imagen)  # Obtiene el nombre de archivo de la imagen de la prediccion actual
+                prediccion.imagen = url_for('static', filename=f'img/{nombreImagen}')  # Genera la ruta completa de la imagen y la asigna a la propiedad 'imagen' de la prediccion
+            
+            return render_template('predicciones.html', predicciones=predicciones)  # Renderiza la plantilla 'predicciones.html' y pasa la lista de predicciones como contexto
+
+    except Exception as e:  # Captura cualquier excepción que ocurra
+        return redirect('/prediccion_felinos')  # En caso de excepción, redirige al punto de acceso '/prediccion_felinos'
