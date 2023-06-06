@@ -1,3 +1,15 @@
+// Datos de cada span
+const porcentajeLeon = document.getElementById('leon').textContent;
+const porcentajeGato = document.getElementById('gato').textContent;
+const porcentajeTigre = document.getElementById('tigre').textContent;
+const porcentajePantera = document.getElementById('pantera').textContent;
+
+// Span para la barra de progreso de predicción
+document.getElementById('barraLeon').style.width = porcentajeLeon;
+document.getElementById('barraGato').style.width = porcentajeGato;
+document.getElementById('barraTigre').style.width = porcentajeTigre;
+document.getElementById('barraPantera').style.width = porcentajePantera;
+
 document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
 
