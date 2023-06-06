@@ -1,0 +1,22 @@
+.container-progreso {
+    width: 100px;
+    height: 20px;
+    flex: 2;
+    margin-right: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    position: relative;
+    overflow: hidden;
+}
+
+#barra-progreso {
+    width: 0%;
+    height: 100%;
+    background-color: rgb(60, 0, 255);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
